@@ -84,7 +84,7 @@ export default function Home({ navigation }) {
         <View style={[styles.routeContainer]}>
           <DatePickerComponent />
           <View style={[styles.routeButtonstyle]}>
-          <CustomButton customStyle={{ backgroundColor:'rgb(79,156,233)',textTransform: 'uppercase'}} onPress={handleOptionSelected} title="START ROUTE" />
+          <CustomButton customStyle={{ backgroundColor:'rgb(79,156,233)'}} onPress={handleOptionSelected} title="START ROUTE" />
           </View>
         </View>
         <View style={[styles.servicesContainer]}>
