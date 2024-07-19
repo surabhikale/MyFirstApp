@@ -139,33 +139,23 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   forgetText: {
+    fontFamily: 'Poppins-Regular', 
+    fontWeight: '700', 
+    lineHeight: 25,
     fontSize: 11,
     color: '#4383e3',
   },
-  
-  optionsText: {
+ 
+    footerText: {
     textAlign: 'center',
-    paddingVertical: 10,
-    color: 'gray',
-    fontSize: 13,
-    marginBottom: 6,
-  },
-  mediaIcons: {
-    flexDirection: 'row',
-    gap: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 23,
-  },
-  icons: {
-    width: 40,
-    height: 40,
-  },
-  footerText: {
-    textAlign: 'center',
+    fontFamily: 'Poppins-Regular', 
+    fontWeight: '700', 
+    lineHeight: 25,
     color: 'gray',
   },
   signup: {
+    fontFamily: 'Poppins-Regular', 
+    fontWeight: '700', 
     color: '#4383e3',
     fontSize: 13,
   },

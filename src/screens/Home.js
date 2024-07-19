@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, FlatList} from 'react-native';
+import {StyleSheet, View, Text, FlatList, Image} from 'react-native';
 import Dropdown from '../componenHome/dropdown';
 import CustomButton from '../componenHome/customButton';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -34,41 +34,29 @@ export default function Home() {
       icon: 'VanShuffle',
     },
   ];
+  const StudentEntry = require('../assets/images/studentList.png');
+  const Route = require('../assets/images/Route.png');
+  const StudentShuffle = require('../assets/images/studentshuffle.png');
+  const VanShuffle = require('../assets/images/vanshuffle.png');
   const renderIcon = (icon) => {
     if (typeof icon === 'string') {
       // Return other icons based on the string value
       switch (icon) {
         case 'StudentEntry':
           return (
-            <MaterialCommunityIcons
-              name="van-utility"
-              size={30}
-              color="white"
-            />
+            <Image source={StudentEntry}  />
           );
         case 'Route':
           return (
-            <MaterialCommunityIcons
-              name="van-utility"
-              size={30}
-              color="white"
-            />
+            <Image source={Route} />
           );
         case 'StudentShuffle':
           return (
-            <MaterialCommunityIcons
-              name="shuffle-variant"
-              size={30}
-              color="white"
-            />
+            <Image source={StudentShuffle}  />
           );
         case 'VanShuffle':
           return (
-            <MaterialCommunityIcons
-              name="shuffle-variant"
-              size={30}
-              color="white"
-            />
+            <Image source={VanShuffle}  />
           );
         default:
           return null;
@@ -105,7 +93,7 @@ export default function Home() {
             keyExtractor={(item, index) => item.key}
             renderItem={({item}) => (
               <View style={styles.card}>
-                <View>{renderIcon(item.icon)}</View>
+                <View style={styles.imageIcon}>{renderIcon(item.icon)}</View>
                 <Text style={styles.text}>{item.text}</Text>
               </View>
             )}
@@ -154,6 +142,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row' /*it was column*/,
     alignContent: 'space-between',
+  },
+  imageIcon:{
+    color:'#FFFFFF'
   },
   text: {
     fontSize: 14,

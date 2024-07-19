@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import CustomButton from '../componenHome/customButton';
 import CustomInputText from '../components/TextInput';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -33,13 +33,12 @@ const Register = () => {
   }*/
 
   return (
-    <View style={styles.container}>
-    
-          <View style={styles.overlay}>
+    <View style={styles.container}>    
+          <View style={styles.innercontainer}>
             <Text style={styles.welcomeText}>Register</Text>
             <View style={styles.captureButtonContainer}>
-                         <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
-                <Ionicons name="camera" size={40} color="#fff" />
+            <TouchableOpacity style={styles.captureButton} >
+                <MaterialCommunityIcons name="camera" size={40}  />
               </TouchableOpacity>
             </View>
           </View>     
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 20,
+    paddingVertical: 10,
   },
   title: {
     fontSize: 20,
@@ -100,29 +99,34 @@ const styles = StyleSheet.create({
   },
   captureButtonContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom:10,
   },
   captureButton: {
-    backgroundColor: '#007AFF',
+    backgroundColor: '#E9F3FD',
     borderRadius: 50,
     padding: 20,
+    color:'#626262'
   },
   preview: {
     width: '100%',
     height: '100%',
   },
   innercontainer:{   
-    flex:1,
+    //flex:1,
+    height:150,
     backgroundColor: '#1B83E3',
-    alignItems: 'center', 
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    //paddingVertical: 20,
     borderRadius: 26,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     width: '100%',
-    marginBottom: 15,
+    //marginBottom: 15,
   },
   fieldcontainer:{
     flex:2.5,
+    marginTop:70,
    // backgroundColor: '#B4ED6B',
     justifyContent: 'center',
     alignSelf: 'stretch',
