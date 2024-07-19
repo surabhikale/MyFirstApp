@@ -1,20 +1,18 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Text, FlatList} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-import Dropdown from './src/component/dropdown';
-import CustomButton from './src/component/customButton';
+import Dropdown from '../componenHome/dropdown';
+import CustomButton from '../componenHome/customButton';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import DatePickerComponent from './src/component/datepicker';
+import DatePickerComponent from '../componenHome/datepicker';
 
-function Feed() {
+export default function Home() {
   const [selectedOption, setSelectedOption] = useState([]);
   const options = ['VAN NHS 1234', 'VAN HMRC 5678', 'VAN JUPD 3456'];
 
-  const handleOptionSelected = (option: any) => {
+  const handleOptionSelected = (option) => {
     setSelectedOption(option);
   };
-  const list: any = [
+  const list = [
     {
       key: 1,
       text: 'Student Entry',
@@ -36,7 +34,7 @@ function Feed() {
       icon: 'VanShuffle',
     },
   ];
-  const renderIcon = (icon: any) => {
+  const renderIcon = (icon) => {
     if (typeof icon === 'string') {
       // Return other icons based on the string value
       switch (icon) {
@@ -104,7 +102,7 @@ function Feed() {
           <FlatList
             data={list}
             numColumns={2}
-            keyExtractor={(item: any, index: number) => item.key}
+            keyExtractor={(item, index) => item.key}
             renderItem={({item}) => (
               <View style={styles.card}>
                 <View>{renderIcon(item.icon)}</View>
@@ -175,47 +173,6 @@ const styles = StyleSheet.create({
     flex: 6,
   },
 });
-function Article() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Article Screen</Text>
-    </View>
-  );
-}
 
-const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
-  return (
-    <Drawer.Navigator
-      screenOptions={{
-        headerTitleAlign: 'center',
-        headerTitleStyle: {
-          fontFamily: 'SFProDisplay-Medium',
-          fontWeight: '500',
-        },
-      }}>
-      <Drawer.Screen
-        name="Feed"
-        component={Feed}
-        options={{
-          drawerLabel: 'Home',
-          title: 'My Home',
-        }}
-      />
-      <Drawer.Screen
-        name="Article"
-        component={Article}
-        options={{title: 'My Article'}}
-      />
-    </Drawer.Navigator>
-  );
-}
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyDrawer />
-    </NavigationContainer>
-  );
-}

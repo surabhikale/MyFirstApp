@@ -3,7 +3,7 @@ import { View, Button, Text, StyleSheet,TouchableOpacity  } from 'react-native';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-const DatePickerComponent = () => {
+const DatePickerComponent = ({}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
