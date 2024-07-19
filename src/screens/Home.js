@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, FlatList, Image} from 'react-native';
+import {StyleSheet, View, Text, FlatList, Image,TouchableOpacity} from 'react-native';
 import Dropdown from '../componenHome/dropdown';
 import CustomButton from '../componenHome/customButton';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import DatePickerComponent from '../componenHome/datepicker';
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [selectedOption, setSelectedOption] = useState([]);
   const options = ['VAN NHS 1234', 'VAN HMRC 5678', 'VAN JUPD 3456'];
 
@@ -38,6 +37,7 @@ export default function Home() {
   const Route = require('../assets/images/Route.png');
   const StudentShuffle = require('../assets/images/studentshuffle.png');
   const VanShuffle = require('../assets/images/vanshuffle.png');
+  const Alerticon = require('../assets/images/alreticon.png');
   const renderIcon = (icon) => {
     if (typeof icon === 'string') {
       // Return other icons based on the string value
@@ -83,8 +83,9 @@ export default function Home() {
         </View>
         <View style={[styles.routeContainer]}>
           <DatePickerComponent />
-
-          <CustomButton onPress={handleOptionSelected} title="start route" />
+          <View style={[styles.routeButtonstyle]}>
+          <CustomButton customStyle={{ backgroundColor:'rgb(79,156,233)',textTransform: 'uppercase'}} onPress={handleOptionSelected} title="START ROUTE" />
+          </View>
         </View>
         <View style={[styles.servicesContainer]}>
           <FlatList
@@ -98,7 +99,14 @@ export default function Home() {
               </View>
             )}
           />
+         
         </View>
+        
+        <TouchableOpacity style={styles.EmergencyAlertButton}>
+            <Image source={Alerticon}  style={styles.imageIcon} />
+            <Text style={styles.buttonText}>Emergency Alert</Text>
+          </TouchableOpacity>
+         
       </View>
     </>
   );
@@ -117,7 +125,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   routeContainer: {
-    flex: 1.5,
+    flex: 2,
     backgroundColor: '#4383e3',
     marginBottom: 15,
     borderRadius: 5,
@@ -143,8 +151,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row' /*it was column*/,
     alignContent: 'space-between',
   },
+  bottomButtonontainer:{
+    flex: 1,
+  },
   imageIcon:{
-    color:'#FFFFFF'
+    color:'#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     fontSize: 14,
@@ -163,6 +176,34 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     flex: 6,
   },
+  routeButtonstyle:{
+    marginTop:25,   
+  },
+  EmergencyAlertButton: {
+    backgroundColor: '#E31B1E',
+    borderRadius: 60,
+    padding: 12,
+    color:'#ffffff',
+    position: 'absolute',
+    bottom: 100,
+    left: 8,
+    width: 90,
+    height: 90,    
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 5, 
+    shadowColor: 'rgba(27, 131, 227, 0.13)',
+    shadowOffset: { width: 0, height: 10 }, 
+    shadowOpacity: 0.3, 
+    shadowRadius: 3, 
+  },
+  buttonText: {
+    fontFamily: 'Poppins-Regular', // Ensure this matches the font file name
+    fontSize: 10,
+    fontWeight: '500',
+    color: 'white',
+    textAlign: 'center',
+  }
 });
 
 

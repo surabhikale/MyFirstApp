@@ -4,7 +4,7 @@ import CustomButton from '../componenHome/customButton';
 import CustomInputText from '../components/TextInput';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //import { RNCamera } from 'react-native-camera';
-const Register = () => {
+const Register = ({ navigation }) => {
   
   /*const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
@@ -67,7 +67,7 @@ const Register = () => {
               } />
     </View>
     <View style={styles.bottomcontainer} >   
-    <CustomButton onPress={() => navigation.navigate('Register')} title="Register" />    
+    <CustomButton onPress={() => navigation.navigate('Login')} title="Register" />    
     </View>
   </View>
   );

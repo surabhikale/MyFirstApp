@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderRadius:2,
     borderColor:'#4f9ce9',
-    margin:5
+    margin:5,
+    height:50
   },
   iconButton: {
     padding: 10, 

@@ -7,10 +7,10 @@ import {
   Text,
 } from "react-native";
 
-const CustomButton = ({ onPress, title  }) => { 
+const CustomButton = ({ onPress, title , customStyle  }) => { 
 
   return (
-    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <TouchableOpacity onPress={onPress} style={[styles.appButtonContainer,customStyle]}>
       <Text style={styles.appButtonText}>{title}</Text>
     </TouchableOpacity>
   );
