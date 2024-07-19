@@ -45,10 +45,10 @@ const Register = ({ navigation }) => {
       
    
     <View style={styles.fieldcontainer} > 
-    <CustomInputText placeholder={'Name'} />
-    <CustomInputText placeholder={'Phone Number'} />
-    <CustomInputText placeholder={'Vehicle Number'} />
-    <CustomInputText placeholder={'Upload Drivers License'} onChangeText={txt => {
+    <CustomInputText placeholder={'Name'} id={'Name'}/>
+    <CustomInputText placeholder={'Phone Number'} id={'Phonenumber'} />
+    <CustomInputText placeholder={'Vehicle Number'} id={'Vehiclenumber'} />
+    <CustomInputText placeholder={'Upload Drivers License'}  id={'DriversLicense'} onChangeText={txt => {
                 //searchData(txt);
               }}
               rightIcon={

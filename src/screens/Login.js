@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 const logo = require('../assets/images/logoTransparent.png');
 import CustomButton from '../componenHome/customButton';
+import CustomInputText from '../components/TextInput';
 const LoginForm = ({ navigation }) => { 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,33 +27,33 @@ const LoginForm = ({ navigation }) => {
       </View>
       <View style={styles.bottomcontainer} >
       <View style={styles.inputView}>
-        <TextInput
-          style={styles.input}
-          placeholder="Vehicle Number"
+        <CustomInputText         
+          placeholder={"Vehicle Number"}
+          id={"VehicleNumber"}
           value={username}
           onChangeText={setUsername}
           autoCorrect={false}
           autoCapitalize="none"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
+        <CustomInputText  
+          id={"Password"}        
+          placeholder={"Password"}
           secureTextEntry
           value={password}
           onChangeText={setPassword}
           autoCorrect={false}
           autoCapitalize="none"
         />
+               
       </View>
-      <View style={styles.rememberView}>      
-        <View>
+      <View>
           <Pressable onPress={() => Alert.alert('Forget Password!')}>
             <Text style={styles.forgetText}>Forgot Password?</Text>
           </Pressable>
         </View>
-      </View>
       <CustomButton onPress={() => navigation.navigate('Home')} title="Login" />
-      <View>
+      <View style={styles.rememberView}>
+      
       <Pressable onPress={() => Alert.alert('help')}>
             <Text style={styles.footerText}>Help</Text>
           </Pressable>  
@@ -106,19 +107,20 @@ const styles = StyleSheet.create({
    
   },
   bottomcontainer:{
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  
+    flex:2,
+    //justifyContent: 'center',
+    alignSelf: 'stretch',
+    
   },
   inputView: {
+    marginTop:30,
     gap:20,
     alignSelf: 'stretch',   
-    paddingHorizontal:20, 
+    //paddingHorizontal:20, 
   },
   input: {
     height: 50,
-    paddingHorizontal: 20,
+    //paddingHorizontal: 20,
     borderColor: '#1B83E3',
     borderWidth: 2,
     borderRadius: 10,
@@ -128,11 +130,11 @@ const styles = StyleSheet.create({
     backgroundColor:'rgba(27, 131, 227, 0.1)'
   },
   rememberView: {
-    width: '100%',  
-    paddingHorizontal:20,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginBottom: 8,
+    flex: 2,
+    //justifyContent: 'center',
+    alignSelf: 'stretch',
+   
+   // marginBottom: 8,
   },
  
   rememberText: {
@@ -143,14 +145,16 @@ const styles = StyleSheet.create({
     fontWeight: '700', 
     lineHeight: 25,
     fontSize: 11,
-    color: '#4383e3',
+    color: '#4383e3', 
+    textAlign: 'right',  
+    paddingHorizontal: 40, 
   },
  
     footerText: {
     textAlign: 'center',
     fontFamily: 'Poppins-Regular', 
     fontWeight: '700', 
-    lineHeight: 25,
+    lineHeight: 20,
     color: 'gray',
   },
   signup: {

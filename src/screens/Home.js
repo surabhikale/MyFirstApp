@@ -3,7 +3,9 @@ import {StyleSheet, View, Text, FlatList, Image,TouchableOpacity} from 'react-na
 import Dropdown from '../componenHome/dropdown';
 import CustomButton from '../componenHome/customButton';
 import DatePickerComponent from '../componenHome/datepicker';
-
+import Header from '../components/Header';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 export default function Home({ navigation }) {
   const [selectedOption, setSelectedOption] = useState([]);
   const options = ['VAN NHS 1234', 'VAN HMRC 5678', 'VAN JUPD 3456'];
@@ -68,6 +70,25 @@ export default function Home({ navigation }) {
   return (
     <>
       <View style={[styles.container]}>
+      <Header
+          leftIcon={
+            <MaterialIcons
+              name="menu"
+              size={25}
+              color={'#000'}
+              onPress={() => navigation.navigate('Login')}
+            />
+          }
+          label={'Home'}
+          rightIcon={
+            <SimpleLineIcons
+              name="bell"
+              size={19}
+              color={'#262929'}
+              onPress={() =>navigation.navigate('Register')}
+            />
+          }
+        />
         <View style={[styles.vanContainer]}>
           <Dropdown options={options} onOptionSelected={handleOptionSelected} />
 

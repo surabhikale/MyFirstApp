@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text } from 'react-native';
 
 const Input = ({ id, label, leftIcon, rightIcon, error, ...otherProps }) => {
+  const [focus, setFocus] = useState(false);
+  const customStyle = focus ? styles.inputFocus : styles.inputWrapper;
   return (
     <View style={styles.container}>
      {/*  <Text
@@ -14,11 +16,13 @@ const Input = ({ id, label, leftIcon, rightIcon, error, ...otherProps }) => {
             <View style={styles.leftIcon}>{leftIcon}</View>
           </View>
         )}
-<View style={styles.inputWrapper}>
+<View style={customStyle}>
           <TextInput
             key={id}
             style={styles.input}
             placeholderTextColor={'#626262'}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
             {...otherProps}
           />
           {rightIcon && (
@@ -54,12 +58,25 @@ const styles = StyleSheet.create({
   inputWrapper: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: '#1B83E3',
-    borderWidth: 2,
+    alignItems: 'center',    
     borderRadius: 10,
     marginBottom: 15,
     paddingHorizontal: 20,
+    color:'rgba(98, 98, 98, 1)',
+    backgroundColor:'rgba(27, 131, 227, 0.1)'
+  },
+  inputFocus:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',    
+    borderRadius: 10,
+    marginBottom: 15,
+    paddingHorizontal: 20,
+    borderColor: '#1B83E3',
+    borderWidth: 2,
+    borderRadius: 10,
+    color:'rgba(98, 98, 98, 1)',
+    backgroundColor:'rgba(27, 131, 227, 0.1)'
   },
   input: {
     flex: 1,

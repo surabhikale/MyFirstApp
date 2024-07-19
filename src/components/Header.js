@@ -19,7 +19,7 @@ const Header = ({
     <View style={styles.headerContainer}>
       <StatusBar
         barStyle="dark-content"
-        hidden={false}
+        hidden={true}
         backgroundColor="#fff"
         translucent={false}
       />
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 19,
-    fontFamily: 'Outfit-Bold',
+    fontFamily: 'Poppins-Regular',
     color: '#000',
     width: '90%',
     textAlign: 'center',
