@@ -9,6 +9,7 @@ import Login from '../screens/Login';
 import Welcome from '../screens/Welcome';
 import Register from '../screens/Register';
 import Home from '../screens/Home';
+import RegisterSuccess from '../screens/RegisterSuccess';
 //import DrawerNavigator from './DrawerNavigator';
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -28,6 +29,11 @@ const NavigationStack = () => (
       <Stack.Screen 
           name="Register" 
           component={Register} 
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="RegisterSuccess" 
+          component={RegisterSuccess} 
           options={{ headerShown: false }}
         />
         <Stack.Screen 

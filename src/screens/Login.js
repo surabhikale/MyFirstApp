@@ -18,12 +18,14 @@ const LoginForm = ({ navigation }) => {
   const [password, setPassword] = useState('');
  
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.maincontainer}>
+      <View style={styles.container} >
      <View style={styles.innercontainer} >
       <Image source={logo} style={styles.logo} />
       <Text style={styles.title}>Login here</Text>
       <Text style={styles.subtitle}>Welcome back</Text>
       <Text style={styles.subtitle}>to Child Shield</Text>
+      </View>
       </View>
       <View style={styles.bottomcontainer} >
       <View style={styles.inputView}>
@@ -43,48 +45,48 @@ const LoginForm = ({ navigation }) => {
           onChangeText={setPassword}
           autoCorrect={false}
           autoCapitalize="none"
-        />
-               
+        />     
+        <Pressable onPress={() => Alert.alert('Forget Password!')}>
+            <Text style={styles.forgetText}>Forgot your Password?</Text>
+          </Pressable>      
+      </View> 
       </View>
-      <View>
-          <Pressable onPress={() => Alert.alert('Forget Password!')}>
-            <Text style={styles.forgetText}>Forgot Password?</Text>
-          </Pressable>
-        </View>
-      <CustomButton onPress={() => navigation.navigate('Home')} title="Login" />
       <View style={styles.rememberView}>
-      
+      <CustomButton onPress={() => navigation.navigate('Home')} title="Login" />
       <Pressable onPress={() => Alert.alert('help')}>
             <Text style={styles.footerText}>Help</Text>
           </Pressable>  
-      </View>
-      
-      </View>
+      </View>      
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  maincontainer: {
+    flex: 1,    
     backgroundColor: '#fff',
   },
+  container: {
+    flex: 3,    
+    justifyContent:'center',
+    alignItems:'center'
+    },
   innercontainer:{   
-    flex:2,
+    flex: 2,   
     backgroundColor: '#1B83E3',
     alignItems: 'center', 
     borderRadius: 26,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     width: '100%',
+    minHeight:'400',
     marginBottom: 15,
   },
   logo: {
-    marginTop:20,
-    width: 236,
-    height: 236,
+    marginTop:8,
+    width: 215,
+    height: 215,
+    maxWidth:'100%',
     resizeMode: 'contain',
     
   },
@@ -118,29 +120,13 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',   
     //paddingHorizontal:20, 
   },
-  input: {
-    height: 50,
-    //paddingHorizontal: 20,
-    borderColor: '#1B83E3',
-    borderWidth: 2,
-    borderRadius: 10,
-    marginBottom: 15,
-    fontSize:16,
-    color:'background: rgba(98, 98, 98, 1)',
-    backgroundColor:'rgba(27, 131, 227, 0.1)'
-  },
-  rememberView: {
-    flex: 2,
-    //justifyContent: 'center',
-    alignSelf: 'stretch',
-   
-   // marginBottom: 8,
-  },
  
-  rememberText: {
-    fontSize: 13,
+  rememberView: {
+    flex: 1.5,
+    //justifyContent: 'center',
+    alignSelf: 'stretch',   
   },
-  forgetText: {
+   forgetText: {
     fontFamily: 'Poppins-Regular', 
     fontWeight: '700', 
     lineHeight: 25,
@@ -157,11 +143,6 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: 'gray',
   },
-  signup: {
-    fontFamily: 'Poppins-Regular', 
-    fontWeight: '700', 
-    color: '#4383e3',
-    fontSize: 13,
-  },
+  
 });
 export default LoginForm;

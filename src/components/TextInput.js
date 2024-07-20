@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   subContainer: {
-    gap: 20,
-    alignSelf: 'stretch',   
+    gap: 30,
+    alignSelf: 'center',   
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',    
     borderRadius: 10,
-    marginBottom: 15,
+    marginBottom: 15,    
     paddingHorizontal: 20,
     color:'rgba(98, 98, 98, 1)',
     backgroundColor:'rgba(27, 131, 227, 0.1)'

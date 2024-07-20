@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 20,
     marginVertical:24, 
-    marginHorizontal:20      
+    marginHorizontal:35     
       },
       appButtonText: {
         fontFamily: 'Poppins-Bold', 

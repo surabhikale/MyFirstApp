@@ -1,46 +1,56 @@
 // WelcomeScreen.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView,Image } from 'react-native';
 const logo = require('../assets/images/logoTransparent.png');
 import CustomButton from '../componenHome/customButton';
 const Welcome = ({ navigation }) => {
   return (    
+    <SafeAreaView style={styles.maincontainer}>
     <View style={styles.container}>
       <View style={styles.innercontainer} >
       <Image source={logo} style={styles.logo} />
       <Text style={styles.welcomeText}>Welcome To</Text>
       <Text style={styles.welcomeText}>Child Shield</Text>
       </View>
+      </View>
       <View style={styles.bottomcontainer} >
       <CustomButton onPress={() => navigation.navigate('Login')} title="Login" />
       <CustomButton onPress={() => navigation.navigate('Register')} title="Register" />    
       </View>
-    </View>
+   
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  maincontainer: {
+    flex: 1,    
     backgroundColor: '#fff',
   },
+  container: {
+    flex: 3,    
+    justifyContent:'center',
+    alignItems:'center'
+    },
   innercontainer:{   
-    flex:2,
+    flex: 2,   
     backgroundColor: '#1B83E3',
     alignItems: 'center', 
     borderRadius: 26,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     width: '100%',
+    maxHeight:'400',
+    height: 400,
+    marginBottom: 15,
   },
   logo: {
-    marginTop:20,
-    width: 236,
-    height: 236,
+    marginTop:8,
+    width: 215,
+    height: 215,
+    maxWidth:'100%',
     resizeMode: 'contain',
-    marginBottom: 20,
+    
   },
   welcomeText: {
     fontFamily: 'Poppins-SemiBold', // Ensure this matches the font file name
@@ -58,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   bottomcontainer:{
-    flex: 1.5,
+    flex: 3,
     justifyContent: 'center',
     alignSelf: 'stretch',
     backgroundColor: 'white',

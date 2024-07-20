@@ -67,7 +67,7 @@ const Register = ({ navigation }) => {
               } />
     </View>
     <View style={styles.bottomcontainer} >   
-    <CustomButton onPress={() => navigation.navigate('Login')} title="Register" />    
+    <CustomButton onPress={() => navigation.navigate('RegisterSuccess')} title="Register" />    
     </View>
   </View>
   );
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   captureButtonContainer: {
     alignItems: 'center',
-    marginBottom:10,
+    marginBottom:20,
   },
   captureButton: {
     backgroundColor: '#E9F3FD',
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   },
   innercontainer:{   
     //flex:1,
-    height:150,
+    height:160,
     backgroundColor: '#1B83E3',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -122,6 +122,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     width: '100%',
+    maxHeight:'400',
+    
     //marginBottom: 15,
   },
   fieldcontainer:{
