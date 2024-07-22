@@ -4,26 +4,30 @@ import FastImage from 'react-native-fast-image';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Header from '../components/Header';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+const StudentImgae = require('../assets/images/StudentImage.png');
 const data = [
   {
     id: '1',
     name: 'Sam Patel',
     time: '7:30 am',
     address: '39 Joshi Chawl Bharucha Road Dahisar',
-    image: 'https://example.com/sam-patel.jpg', // replace with actual image URL
+    image: 'https://example.com/sam-patel.jpg',
   },
   {
     id: '2',
     name: 'Sahana Heer',
     time: '7:50 am',
     address: 'Block A 45, Vilas Nagar, Borivali',
-    image: 'https://example.com/sahana-heer.jpg', // replace with actual image URL
+    image: 'https://example.com/sam-patel.jpg',
   },
 ];
 
 const StudentCard = ({item}) => (
   <View style={styles.card}>
-    <FastImage style={styles.image} source={{uri: item.image}} />
+    <FastImage
+      style={styles.image}
+      source={require('../assets/images/StudentImage.png')}
+    />
     <View style={styles.info}>
       <Text style={styles.name}>{item.name}</Text>
       <View style={styles.details}>
