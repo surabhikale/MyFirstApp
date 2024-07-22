@@ -8,7 +8,17 @@ const RegisterSuccess = ({navigation}) => {
       <View style={styles.innercontainer}>
         <Text style={styles.welcomeText}>Register</Text>
       </View>
-      <View style={styles.fieldcontainer}></View>
+      <View style={styles.fieldcontainer}>
+        <FastImage
+          style={styles.iconimage}
+          source={require('../assets/images/rightRigster.png')}
+          resizeMode={FastImage.resizeMode.contain}
+        />
+        <Text style={styles.subtitle}>Account Registered </Text>
+        <Text style={styles.subtitleSmall}>
+          Login Password is Sent to Your WhatsApp No.{' '}
+        </Text>
+      </View>
       <View style={styles.bottomcontainer}>
         <CustomButton
           onPress={() => navigation.navigate('Login')}
@@ -25,37 +35,49 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
-  title: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: 'bold',
-    marginTop: 50,
+  iconimage: {
+    resizeMode: 'cover',
+    width: 228,
+    height: 228,
+    alignSelf: 'center',
   },
- 
+  subtitle: {
+    fontFamily: 'Poppins-SemiBold',
+    fontSize: 25,
+    fontWeight: '600',
+    lineHeight: 37.5,
+    textAlign: 'center',
+    color: '#626262',
+    marginTop: 10,
+  },
+  subtitleSmall: {
+    fontFamily: 'Poppins-Regular',
+    fontSize: 15,
+    fontWeight: '600',
+    lineHeight: 22.5,
+    textAlign: 'center',
+    color: '#626262',
+    marginTop: 10,
+    margin: 55,
+  },
   innercontainer: {
     //flex:1,
     height: 130,
     backgroundColor: '#1B83E3',
     justifyContent: 'space-between',
     alignItems: 'center',
-    //paddingVertical: 20,
+    paddingVertical: 40,
     borderRadius: 26,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     width: '100%',
-   
   },
   fieldcontainer: {
     flex: 2.5,
-    marginTop: 70,
-    // backgroundColor: '#B4ED6B',
     justifyContent: 'center',
-    alignSelf: 'stretch',
   },
   bottomcontainer: {
     flex: 1,
-    //backgroundColor: '#EAF4DC',
     justifyContent: 'center',
     alignSelf: 'stretch',
   },
