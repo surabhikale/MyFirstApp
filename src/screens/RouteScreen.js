@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import FastImage from 'react-native-fast-image';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import StudentCard from './StudentCard';
 import Header from '../components/Header';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-const StudentImgae = require('../assets/images/StudentImage.png');
+
 const data = [
   {
     id: '1',
@@ -22,35 +21,13 @@ const data = [
   },
 ];
 
-const StudentCard = ({item}) => (
-  <View style={styles.card}>
-    <FastImage
-      style={styles.image}
-      source={require('../assets/images/StudentImage.png')}
-    />
-    <View style={styles.info}>
-      <Text style={styles.name}>{item.name}</Text>
-      <View style={styles.details}>
-        <View style={styles.row}>
-          <Icon name="clock-o" size={20} color="#000" />
-          <Text style={styles.detailText}>{item.time}</Text>
-        </View>
-        <View style={styles.row}>
-          <Icon name="map-marker" size={20} color="#000" />
-          <Text style={styles.detailText}>{item.address}</Text>
-        </View>
-      </View>
-    </View>
-    <TouchableOpacity style={styles.callButton}>
-      <Icon name="phone" size={20} color="#fff" />
-    </TouchableOpacity>
-  </View>
-);
-
 const RouteScreen = ({navigation}) => {
   const [selectedTab, setSelectedTab] = useState('PickUp');
 
-  const renderItem = ({item}) => <StudentCard item={item} />;
+  const handlePress = item => {
+    // Handle the press event, e.g., navigate to the student details screen
+    navigation.navigate('StudentDetails', {student: item});
+  };
 
   return (
     <>
@@ -82,19 +59,23 @@ const RouteScreen = ({navigation}) => {
           <TouchableOpacity
             style={[styles.tab, selectedTab === 'PickUp' && styles.activeTab]}
             onPress={() => setSelectedTab('PickUp')}>
-            <Text style={styles.tabText}>Pick Up</Text>
+            <Text>Pick Up</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.tab, selectedTab === 'Drop' && styles.activeTab]}
             onPress={() => setSelectedTab('Drop')}>
-            <Text style={styles.tabText}>Drop</Text>
+            <Text>Drop</Text>
           </TouchableOpacity>
         </View>
         <FlatList
           data={data}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          contentContainerStyle={styles.listContainer}
+          keyExtractor={item => item.key}
+          renderItem={({item}) => (
+            <View style={styles.listContainer}>
+              <StudentCard item={item} onPress={() => handlePress(item)} />
+            </View>
+          )}
+          contentContainerStyle={styles.listContentContainer}
         />
       </View>
     </>
@@ -110,6 +91,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   header: {
+    margin: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 16,
@@ -127,64 +109,36 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: '#007aff',
+    margin: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 10,
   },
   tab: {
     padding: 16,
     width: '50%',
     alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    color: '#499CE9',
+    fontFamily: 'Poppins-Regular',
+    fontWeight: '700',
+    lineHeight: 25,
+    fontSize: 16,
   },
   activeTab: {
-    backgroundColor: '#005bb5',
-  },
-  tabText: {
-    color: '#fff',
+    backgroundColor: '#499CE9',
+    color: '#FFFFFF',
+    fontFamily: 'Poppins-Regular',
+    fontWeight: '700',
+    lineHeight: 25,
     fontSize: 16,
+  },
+  listContentContainer: {
+    paddingVertical: 8,
   },
   listContainer: {
-    padding: 16,
-  },
-  card: {
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 16,
-    alignItems: 'center',
-  },
-  image: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-  },
-  info: {
-    flex: 1,
-    marginLeft: 16,
-  },
-  name: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  details: {
-    flexDirection: 'column',
-  },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  detailText: {
-    marginLeft: 8,
-    fontSize: 16,
-  },
-  callButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: '#007aff',
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingHorizontal: 16,
   },
 });
 

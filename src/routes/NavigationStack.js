@@ -15,6 +15,8 @@ import StudentEntryScreen from '../screens/StudentEntryScreen';
 import StudentShuffleScreen from '../screens/StudentShuffleScreen';
 import VanShuffleScreen from '../screens/VanShuffleScreen';
 import EmergencyScreen from '../screens/EmergencyScreen';
+import StudentCard from '../screens/StudentCard';
+import StudentDetailsScreen from '../screens/StudentDetailsScreen';
 //import DrawerNavigator from './DrawerNavigator';
 const Stack = createNativeStackNavigator();
 export const navigationRef = createNavigationContainerRef();
@@ -69,6 +71,16 @@ const NavigationStack = () => (
       <Stack.Screen
         name="Emergency"
         component={EmergencyScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="StudentCard"
+        component={StudentCard}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="StudentDetails"
+        component={StudentDetailsScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
